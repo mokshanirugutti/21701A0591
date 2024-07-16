@@ -88,6 +88,7 @@ const ProductsPage = () => {
           />
         </label>
         <label className="flex flex-col">
+        
           <span className="font-medium">Rating:</span>
           <input
             type="number"

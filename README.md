@@ -1,30 +1,52 @@
-# React + TypeScript + Vite
+### API End points
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## end point to get sample data
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### body 
 
-## Expanding the ESLint configuration
+`url` 
+```json
+res = fetch('http://20.244.56.144/test/companies/AMZ/categories/Laptop/products?top=10&minPrice=1&maxPrice=10000', {
+        method: 'GET',
+        headers: {
+          'Authorization': 'Bearer eTOKEN'
+        }
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+```
+- to fileter data
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+- acceptable filteres Values
+```
+Companies : "AMZ", "FLP", "SNP", "MYN", "AZO"
+```
+```
+Categories: "Phone", "Computer", "TV", "Earphone", "Tablet", "Charger", "Mouse", "Keypad", "Bluetooth".
+"Pendrive", "Remote", "Speaker", "Headset", "Laptop", "PC"
+```
+```json
+company: 'AMZ',
+    category: 'TV',
+    minPrice: 1,
+    maxPrice: 10000,
+    rating: 0,
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+`response`
+```json 
+{
+"productName": "Laptop 1",
+"price": 2236,
+"rating": 4.7,
+"discount": 63,
+"availability": "yes"
+"productName": "Laptop 13",
+"price": 1244,
+"rating": 4.5,
+"discount": 45,
+"availability": "out-of-stock"
+"productName": "Laptop 3",
+"price": 9102,
+}
+```
